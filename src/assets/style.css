@@ -85,6 +85,10 @@
   margin-bottom: 40px;
 }
 
+.backlight:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .text-p {
   margin-bottom: 30px;
 }

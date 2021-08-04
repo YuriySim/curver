@@ -14,11 +14,12 @@
         <th>Reach% 8+</th>
         <th>Reach% 9+</th>
         <th>Reach% 10+</th>
+        <th> </th>
       </tr>
     </thead>
 
     <tbody v-for="(item, idx) of dataTable" :key="item.unit">
-      <tr>
+      <tr class="backlight">
         <td>{{ idx + 1 }}</td>
         <td>{{ item.unit }}</td>
         <td>{{ item.reach[0] }}</td>
@@ -31,6 +32,13 @@
         <td>{{ item.reach[7] }}</td>
         <td>{{ item.reach[8] }}</td>
         <td>{{ item.reach[9] }}</td>
+        <td>
+          <a
+            class="waves-effect waves-light btn" @click.prevent="deleteData(idx)"
+          >
+            <i class="material-icons">delete</i>
+          </a>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -49,5 +57,11 @@
       },
     },
 
+    methods: {
+      deleteData(idx) {
+        this.dataTable.splice(idx, 1)
+        this.$message('Deleted')
+      },
+    },
   }
 </script>
