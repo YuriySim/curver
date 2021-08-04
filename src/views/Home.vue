@@ -8,14 +8,19 @@
       <LineChart
         v-if="dataTable.length != 0"
         :dataTable="dataTable"
-        :key="dataTable.length"
+        :key="dataTable.length + counter"
       />
 
-      <Form @addToTable="addToTable" />
+      <Form
+        :dataTable="dataTable"
+        @addToTable="addToTable"
+        @editData="editData"
+        :key="dataTable.length + counter"
+      />
 
       <Table
         :dataTable="dataTable"
-        :key="dataTable.length"
+        :key="dataTable.length + counter"
       />
 
       <button
@@ -43,6 +48,8 @@
       return {
         dataTable: [],
 
+        counter: 0,
+
         loading: true, //turn on preloader
       }
     },
@@ -51,6 +58,11 @@
       //This method adds entered data in dataTable
       addToTable(results) {
         this.dataTable.push(results)
+      },
+
+      //This method calls the update of the components when the data changes
+      editData() {
+        this.counter++
       },
 
       //This method sends all data to backend

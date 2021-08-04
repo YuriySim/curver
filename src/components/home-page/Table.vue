@@ -58,6 +58,7 @@
     },
 
     methods: {
+      //This method deletes data from table
       deleteData(idx) {
         this.dataTable.splice(idx, 1)
         this.$message('Deleted')
