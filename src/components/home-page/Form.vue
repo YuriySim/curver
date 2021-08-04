@@ -362,6 +362,7 @@
     },
 
     watch: {
+      //Tracks the change in the select field and fill in the fields input
       selectData() {
         this.sData = this.dataTable.find(d => d.unit === this.selectData)
         if(this.sData) {
@@ -398,6 +399,7 @@
     },
 
     mounted() {
+      //Initialization select field
       this.select = M.FormSelect.init(this.$refs.select)
 
       M.updateTextFields()
